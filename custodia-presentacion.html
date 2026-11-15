@@ -193,6 +193,17 @@ body:has(#cierre.act) #sky .meteor,body:has(#cierre.act) #sky .ship,body:has(#ci
 @media(max-width:900px){#portada .jorge-en-portada{right:14px;bottom:88px;width:clamp(100px,18vw,155px)}}
 @media(max-width:560px){#portada .jorge-en-portada{right:8px;bottom:72px;width:92px}}
 @media(prefers-reduced-motion:reduce){#portada .jorge-en-portada{animation:none!important}}
+/* Keep the help dock clear of presentation text by reserving a bottom lane. */
+#e{height:calc(100% - 92px)!important;top:calc(50% - 46px)!important}
+#ayuda{bottom:14px!important;gap:4px!important;padding:5px!important;border-radius:14px!important}
+#ayuda .hint{min-height:34px!important;gap:7px!important;padding:0 9px!important;font-size:11px!important}
+#ayuda .hint-label{font-size:9px!important}
+#ayuda kbd{font-size:10px!important;padding:3px 6px!important}
+@media(max-width:700px){#e{height:calc(100% - 68px)!important;top:calc(50% - 34px)!important}#ayuda{bottom:7px!important}}
+@media(max-width:520px){#ayuda{left:50%!important;right:auto!important;max-width:calc(100vw - 12px)!important}#ayuda .hint-label{display:none!important}}
+@media(max-height:560px){#e{height:calc(100% - 58px)!important;top:calc(50% - 29px)!important}#ayuda{bottom:4px!important}}
+#portada .libre-sticker{left:4%!important;bottom:7%!important;width:clamp(76px,8vw,132px)!important;max-height:22%!important;object-fit:contain!important;filter:drop-shadow(0 5px 10px #02040a99)!important;transform:none!important}
+.jorge-signoff{display:none!important}
 </style></head><body>
 <div id="sky" aria-hidden="true"><div class="stars"></div><div class="stars far"></div><div class="nebula"></div><div class="black-hole"></div><div class="orbit"></div><svg class="ship ship-a" viewBox="0 0 100 52"><path d="M3 28 34 20 58 4l12 2-8 16 25 1 10 7-39 4-17 14-10-2 8-15-27 2z"/></svg><svg class="ship ship-b" viewBox="0 0 100 52"><path d="M3 28 34 20 58 4l12 2-8 16 25 1 10 7-39 4-17 14-10-2 8-15-27 2z"/></svg><i class="meteor" style="--x:18%;--length:240px;--duration:8s;--delay:1s"></i><i class="meteor" style="--x:43%;--length:190px;--duration:11s;--delay:5s"></i><i class="meteor" style="--x:71%;--length:280px;--duration:9s;--delay:3s"></i><i class="meteor" style="--x:88%;--length:210px;--duration:12s;--delay:8s"></i></div>
 <div id="controles"><div id="lang"><button data-l="es">ES</button><button data-l="en">EN</button><button data-l="he">עב</button></div><button id="presentar" type="button" aria-label="Expandir presentación a pantalla completa">⛶ <span id="presentar-texto">Pantalla completa</span></button></div><div id="e" lang="es"><section id="portada" data-transition="fade" style="justify-content:center;gap:30px">
