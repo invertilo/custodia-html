@@ -4,15 +4,18 @@
 html,body{margin:0;height:100%;background:#04060d;overflow:hidden}#e{position:absolute;left:50%;top:50%;width:1920px;height:1080px;transform-origin:center}
 section{position:absolute;inset:0;box-sizing:border-box;width:1920px;height:1080px;display:none!important}section.act{display:flex!important}
 #n{position:fixed;right:16px;bottom:8px;color:#5d6a88;font:14px Inter,sans-serif;z-index:9}
-#lang{position:fixed;top:12px;right:14px;z-index:10;display:flex;gap:6px}
-#lang button{font:600 14px Inter,"Rubik",sans-serif;padding:6px 12px;border-radius:8px;border:1.5px solid #33405e;background:#0d111c;color:#a9b6d0;cursor:pointer}
+#lang{display:grid;grid-template-columns:repeat(3,minmax(46px,1fr));gap:6px;min-width:0}
+#lang button{font:700 14px Inter,"Rubik",sans-serif;min-width:0;padding:9px 12px;border-radius:10px;border:1.5px solid #33405e;background:#0d111c;color:#a9b6d0;cursor:pointer;white-space:nowrap}
 #lang button.on{border-color:#ffc23d;color:#ffc23d}
-#presentar{font:600 14px Inter,"Rubik",sans-serif;padding:6px 12px;border-radius:8px;border:1.5px solid #5ff6ff;background:#0d111c;color:#5ff6ff;cursor:pointer}
+#presentar{font:700 14px Inter,"Rubik",sans-serif;display:flex;align-items:center;justify-content:center;gap:8px;width:100%;box-sizing:border-box;padding:9px 12px;border-radius:10px;border:1.5px solid #5ff6ff;background:#0d111c;color:#5ff6ff;cursor:pointer;white-space:nowrap}
 #presentar:hover,#lang button:hover{filter:brightness(1.2)}
-#controles{position:fixed;top:12px;right:14px;z-index:10;display:flex;gap:6px;align-items:center}
-body:fullscreen{background:#04060d}body:fullscreen #controles{top:16px;right:20px}
+#controles{position:fixed;top:14px;right:16px;z-index:20;display:flex;flex-direction:column;gap:8px;align-items:stretch;max-width:calc(100vw - 24px);padding:10px;background:rgba(8,13,27,.88);border:1px solid rgba(132,164,218,.2);border-radius:18px;box-shadow:0 12px 34px #0007;backdrop-filter:blur(14px)}
+body:fullscreen{background:#04060d}body:fullscreen #controles{top:18px;right:20px}
 #ayuda{position:fixed;left:16px;bottom:10px;z-index:9;color:#9aabc9;font:14px Inter,sans-serif;background:#0b1020bb;border:1px solid #263451;border-radius:999px;padding:9px 14px;backdrop-filter:blur(12px)}
-@media (max-width:700px){#controles{top:8px;right:8px;gap:4px}#lang button,#presentar{padding:6px 8px;font-size:12px}#ayuda{left:8px;bottom:6px;font-size:11px}}
+@media (max-width:700px){#controles{top:8px;right:8px;gap:6px;padding:7px;border-radius:14px}#lang{grid-template-columns:repeat(3,minmax(40px,1fr));gap:4px}#lang button,#presentar{padding:7px 8px;font-size:12px}#ayuda{left:8px;bottom:6px;font-size:11px;padding:7px 10px}}
+
+@media(max-width:520px){#controles{top:8px;right:8px;max-width:calc(100vw - 16px)}#lang{grid-template-columns:repeat(3,minmax(36px,1fr))}#lang button{padding:6px 5px;font-size:11px}#presentar{padding:7px 8px;font-size:11px}}
+@media(max-height:560px){#controles{top:6px;right:8px;padding:6px;gap:5px}#lang button,#presentar{padding:5px 7px;font-size:11px}#ayuda{bottom:5px;padding:5px 9px;font-size:10px}}
 section { --bg: #0d111c; --bg2: #151b2b; --line: #33405e; --fg: #e8eef8; --dim: #a9b6d0; --amber: #ffc23d; --cyan: #5ff6ff; --ok: #4fe08a; --bad: #ff6b6b;
   background: radial-gradient(3px 3px at 9% 14%, #e8eef8 50%, transparent 52%), radial-gradient(2px 2px at 23% 71%, #9fb4d8 50%, transparent 52%), radial-gradient(3px 3px at 41% 8%, #bfe4ff 50%, transparent 52%), radial-gradient(2px 2px at 58% 90%, #e8eef8 50%, transparent 52%), radial-gradient(3px 3px at 72% 12%, #ffe9b0 50%, transparent 52%), radial-gradient(2px 2px at 88% 44%, #e8eef8 50%, transparent 52%), radial-gradient(2px 2px at 95% 83%, #9fb4d8 50%, transparent 52%), radial-gradient(2px 2px at 5% 92%, #bfe4ff 50%, transparent 52%), radial-gradient(ellipse 110% 45% at 50% 118%, #1c3a6e, transparent 70%), linear-gradient(#070a13, #0d111c 60%, #101a33); color: #e8eef8; font-family: "Inter", sans-serif; padding: 128px; display: flex; flex-direction: column; gap: 32px; }
 section.alt { background: radial-gradient(3px 3px at 14% 9%, #e8eef8 50%, transparent 52%), radial-gradient(2px 2px at 36% 93%, #9fb4d8 50%, transparent 52%), radial-gradient(3px 3px at 63% 6%, #ffe9b0 50%, transparent 52%), radial-gradient(2px 2px at 91% 20%, #bfe4ff 50%, transparent 52%), radial-gradient(2px 2px at 97% 68%, #e8eef8 50%, transparent 52%), radial-gradient(ellipse 90% 50% at 100% 0%, #1b2f55, transparent 70%), linear-gradient(#121829, #151b2b); }
