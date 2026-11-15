@@ -209,6 +209,18 @@ body:has(#cierre.act) #sky .meteor,body:has(#cierre.act) #sky .ship,body:has(#ci
 #ayuda{left:22px!important;right:auto!important;bottom:78px!important;transform:translateY(8px)!important;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s ease,transform .18s ease,visibility .18s}
 #ayuda.open{opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0)!important}
 @media(max-width:700px){#ayuda{left:12px!important;bottom:68px!important}#ayuda-toggle{left:12px;bottom:12px}}
+
+/* Hebrew RTL: keep the language selector away from the title, paragraph and astronaut. */
+#e[lang="he"] #portada{direction:rtl;text-align:right}
+#e[lang="he"] #portada .titulo-principal,#e[lang="he"] #portada .subtitulo,#e[lang="he"] #portada .kicker{max-width:78%;margin-right:0;margin-left:auto}
+#e[lang="he"] #portada .idiomas-portada{justify-content:flex-start}
+#e[lang="he"] #portada .jorge-en-portada{right:clamp(24px,3vw,56px);left:auto;width:clamp(145px,14vw,210px)}
+@media(max-width:900px){#e[lang="he"] #portada .titulo-principal,#e[lang="he"] #portada .subtitulo,#e[lang="he"] #portada .kicker{max-width:72%}}
+
+#controles{top:14px!important;right:16px!important}
+#lang{gap:6px!important}
+#lang button{min-width:54px!important;padding:8px 12px!important}
+@media(max-width:700px){#controles{top:8px!important;right:8px!important}}
 </style></head><body>
 <div id="sky" aria-hidden="true"><div class="stars"></div><div class="stars far"></div><div class="nebula"></div><div class="black-hole"></div><div class="orbit"></div><svg class="ship ship-a" viewBox="0 0 100 52"><path d="M3 28 34 20 58 4l12 2-8 16 25 1 10 7-39 4-17 14-10-2 8-15-27 2z"/></svg><svg class="ship ship-b" viewBox="0 0 100 52"><path d="M3 28 34 20 58 4l12 2-8 16 25 1 10 7-39 4-17 14-10-2 8-15-27 2z"/></svg><i class="meteor" style="--x:18%;--length:240px;--duration:8s;--delay:1s"></i><i class="meteor" style="--x:43%;--length:190px;--duration:11s;--delay:5s"></i><i class="meteor" style="--x:71%;--length:280px;--duration:9s;--delay:3s"></i><i class="meteor" style="--x:88%;--length:210px;--duration:12s;--delay:8s"></i></div>
 <div id="controles"><div id="lang"><button data-l="es">ES</button><button data-l="en">EN</button><button data-l="he">עב</button></div><button id="presentar" type="button" aria-label="Expandir presentación a pantalla completa">⛶ <span id="presentar-texto">Pantalla completa</span></button></div><div id="e" lang="es"><section id="portada" data-transition="fade" style="justify-content:center;gap:30px">
@@ -316,7 +328,7 @@ const PRES={es:[['La ciencia se aprende explorando.','Cada decisión cambia la m
 const helpToggle=document.getElementById('ayuda-toggle'),helpPanel=document.getElementById('ayuda');helpToggle.addEventListener('click',()=>{const open=helpPanel.classList.toggle('open');helpToggle.setAttribute('aria-expanded',String(open));helpToggle.setAttribute('aria-label',open?'Ocultar atajos':'Mostrar atajos')});document.addEventListener('click',ev=>{if(!ev.target.closest('#ayuda,#ayuda-toggle')){helpPanel.classList.remove('open');helpToggle.setAttribute('aria-expanded','false')}});const S=[...document.querySelectorAll('section')];let i=0,lang='es';const e=document.getElementById('e');
 function f(){const reserve=innerWidth<=700?68:92;const available=Math.max(320,innerHeight-reserve);const k=Math.min(innerWidth/1920,available/1080);e.style.top='calc(50% - '+(reserve/2)+'px)';e.style.transform='translate(-50%,-50%) scale('+k+')'}
 function g(j){i=Math.max(0,Math.min(S.length-1,j));S.forEach((s,x)=>{const active=x===i;if(active&&!s.classList.contains('act')){s.classList.remove('act');void s.offsetWidth}s.classList.toggle('act',active)});document.querySelectorAll('.marca-pie > span:last-child').forEach(x=>x.textContent=(i+1)+' / '+S.length);document.querySelectorAll('[data-guide]').forEach(x=>x.textContent=PRES[lang][i][+x.dataset.guide]);document.getElementById('narradores').classList.toggle('visible',i>0&&i<S.length-1)}
-function idioma(l){lang=LS.includes(l)?l:'es';e.lang=lang;document.documentElement.lang=lang;document.querySelectorAll('.tr').forEach(x=>x.innerHTML=TR[lang][+x.dataset.n]);document.querySelectorAll('#lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===lang));document.querySelectorAll('[data-guide]').forEach(x=>x.textContent=PRES[lang][i][+x.dataset.guide]);try{history.replaceState(null,'','#'+lang)}catch(_){}}
+function idioma(l){lang=LS.includes(l)?l:'es';e.lang=lang;document.documentElement.dir=lang==='he'?'rtl':'ltr';document.documentElement.lang=lang;document.querySelectorAll('.tr').forEach(x=>x.innerHTML=TR[lang][+x.dataset.n]);document.querySelectorAll('#lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===lang));document.querySelectorAll('[data-guide]').forEach(x=>x.textContent=PRES[lang][i][+x.dataset.guide]);try{history.replaceState(null,'','#'+lang)}catch(_){}}
 const langControl=document.getElementById('lang');
 langControl.addEventListener('click',ev=>{ev.stopPropagation();const l=ev.target.dataset&&ev.target.dataset.l;if(l)idioma(l)});
 const presentBtn=document.getElementById('presentar');
