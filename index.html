@@ -106,7 +106,7 @@ section.act{animation:slideReveal .75s cubic-bezier(.2,.75,.25,1) both}
 @keyframes meteorFall{0%{opacity:0;transform:translate3d(0,-18vh,0) rotate(38deg)}5%{opacity:.9}35%{opacity:.75}55%,100%{opacity:0;transform:translate3d(-46vw,115vh,0) rotate(38deg)}}
 @keyframes slideReveal{from{opacity:0;filter:blur(7px);transform:translateX(34px)}to{opacity:1;filter:blur(0);transform:translateX(0)}}
 @keyframes riseReveal{from{opacity:0;transform:translateY(28px) scale(.99)}to{opacity:1;transform:translateY(0) scale(1)}}
-#cierre{display:grid!important;grid-template-columns:minmax(0,1fr) 280px;grid-template-rows:auto auto auto 1fr auto;column-gap:46px;row-gap:20px;align-content:stretch}
+#cierre.act{display:grid!important;grid-template-columns:minmax(0,1fr) 280px;grid-template-rows:auto auto auto 1fr auto;column-gap:46px;row-gap:20px;align-content:stretch}
 #cierre>.kicker,#cierre>h2,#cierre>p,#cierre>.marca-pie{grid-column:1/-1}
 #cierre>.equipo{grid-column:1;grid-row:4;align-self:center;gap:16px}
 #cierre .persona img,#cierre .persona .inicial{width:150px;height:150px}
@@ -120,7 +120,10 @@ section.act{animation:slideReveal .75s cubic-bezier(.2,.75,.25,1) both}
 #cierre .qr-link:hover{text-decoration:underline}
 @media(max-width:900px){#cierre{grid-template-columns:minmax(0,1fr) 220px;column-gap:20px}#cierre .qr-card{width:210px;padding:12px}#cierre .qr-card img{width:160px;height:160px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
-@media (max-width:700px)<div id="lang"><button data-l="es">ES</button><button data-l="en">EN</button><button data-l="he">עב</button></div><button id="presentar" type="button" aria-label="Expandir presentación a pantalla completa">⛶ <span id="presentar-texto">Pantalla completa</span></button></div><div id="e" lang="es"><section id="portada" data-transition="fade" style="justify-content:center;gap:30px">
+@media (max-width:700px){#controles{top:8px;right:8px;gap:4px}#lang button,#presentar{padding:6px 8px;font-size:12px}#ayuda{left:8px;bottom:6px;font-size:11px}}
+</style></head><body>
+<div id="sky" aria-hidden="true"><div class="stars"></div><div class="stars far"></div><i class="meteor" style="--x:18%;--length:240px;--duration:8s;--delay:1s"></i><i class="meteor" style="--x:43%;--length:190px;--duration:11s;--delay:5s"></i><i class="meteor" style="--x:71%;--length:280px;--duration:9s;--delay:3s"></i><i class="meteor" style="--x:88%;--length:210px;--duration:12s;--delay:8s"></i></div>
+<div id="controles"><div id="lang"><button data-l="es">ES</button><button data-l="en">EN</button><button data-l="he">עב</button></div><button id="presentar" type="button" aria-label="Expandir presentación a pantalla completa">⛶ <span id="presentar-texto">Pantalla completa</span></button></div><div id="e" lang="es"><section id="portada" data-transition="fade" style="justify-content:center;gap:30px">
 <p class="kicker sube"><span class="barra"></span>NASA SPACE APPS 2026 · SPACE MISSION DESIGN GAME</p>
 <div class="portada-fila">
 <div class="col" style="gap:30px;min-width:0">
