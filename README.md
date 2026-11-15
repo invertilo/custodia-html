@@ -16,3 +16,7 @@ Presentación web interactiva de CUSTODIA, preparada para servirse como sitio es
 - La última diapositiva muestra al equipo y un QR que abre [el juego CUSTODIA](https://custodia-six-phi.vercel.app).
 
 La lluvia de estrellas y las transiciones están implementadas con CSS. El QR se obtiene de un servicio externo de códigos QR y requiere conexión al cargarlo.
+
+## Recursos gráficos
+
+Los adornos del equipo están en `assets/`: Mervi con kipá y traje espacial acompaña el avatar de Vinicius; el pingüino astronauta acompaña el de Alejandro. Los seis retratos usan marcos animados coordinados.
